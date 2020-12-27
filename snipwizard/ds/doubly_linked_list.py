@@ -4,8 +4,8 @@ from typing import Any, Iterator, Optional, Sequence
 
 class Node:
     def __init__(self, data: Any,
-            next: Optional[Node] = None,
-            prev: Optional[Node] = None) -> None:
+                 next: Optional[Node] = None,
+                 prev: Optional[Node] = None) -> None:
         self.data = data
         self.next = next
         self.prev = prev
@@ -20,6 +20,7 @@ class Node:
 class DoublyLinkedList:
     """Doubly Linked List with two pointers: head and tail
     """
+
     def __init__(self):
         self.head = None
         self.tail = None
@@ -43,7 +44,7 @@ class DoublyLinkedList:
         new_node.next = self.head
         self.head.prev = new_node
         self.head = new_node
-    
+
     def remove(self, node: Optional[Node]) -> None:
         """Remove a node from list.
         Mote: this method assumes that node must in list
@@ -72,7 +73,7 @@ class DoublyLinkedList:
             dlist.append(data)
         return dlist
 
-    def traverse(self, reversed: bool=False) -> Iterator[Node]:
+    def traverse(self, reversed: bool = False) -> Iterator[Node]:
         node = self.head if not reversed else self.tail
         while node is not None:
             yield node

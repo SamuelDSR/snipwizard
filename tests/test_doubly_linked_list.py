@@ -1,10 +1,11 @@
 from snipwizard.ds.doubly_linked_list import DoublyLinkedList
 
+
 def test_append():
     dlist = DoublyLinkedList()
     dlist.append(100)
     assert (dlist.head is not None and dlist.tail is not None), \
-            "head tail must not be none after first append"
+        "head tail must not be none after first append"
     assert dlist.head == dlist.tail, "head must equal to tail after fist append"
     assert dlist.head.prev is None, "head prev must be none"
     assert dlist.tail.next is None, "tail next must be none"
@@ -16,11 +17,12 @@ def test_append():
     assert dlist.head.next == dlist.tail, "head next must be tail after append 100,200"
     assert dlist.tail.prev == dlist.head, "tail prev must be head after append 100,200"
 
+
 def test_appendleft():
     dlist = DoublyLinkedList()
     dlist.appendleft(100)
     assert (dlist.head is not None and dlist.tail is not None), \
-            "head tail must not be none after first appendleft"
+        "head tail must not be none after first appendleft"
     assert dlist.head == dlist.tail, "head must equal to tail after fist appendleft"
     assert dlist.head.prev is None, "head prev must be none"
     assert dlist.tail.next is None, "tail next must be none"
@@ -34,7 +36,7 @@ def test_appendleft():
 
 
 def test_from_seq():
-    dlist = DoublyLinkedList.from_seq([1,2,3,4])
+    dlist = DoublyLinkedList.from_seq([1, 2, 3, 4])
     assert dlist.head.prev is None, "head prev must be none"
     assert dlist.tail.next is None, "tail next must be none"
     assert dlist.head.data == 1, "head data must be 1 after from_seq(1,2,3,4)"
@@ -54,7 +56,7 @@ def test_remove():
     dlist.remove(dlist.tail.prev)
     assert dlist.tail.prev.data == 2, "tail previous node must be 2 after removing 1"
     assert dlist.head.next.next == dlist.tail,\
-            "head.next.next must equal to tail after removing 1"
+        "head.next.next must equal to tail after removing 1"
 
     # remove 4
     dlist.remove(dlist.head)
@@ -70,10 +72,10 @@ def test_remove():
 
 
 def test_insert_after():
-    dlist = DoublyLinkedList.from_seq([1,2,3,4])
+    dlist = DoublyLinkedList.from_seq([1, 2, 3, 4])
     dlist.insert_after(dlist.head, 5)
     assert dlist.head.next.data == 5, "head next must be 5 after insert_after 5 to head"
     assert [n.data for n in dlist.traverse()] == [1, 5, 2, 3, 4],\
-            "List traverse must be [1, 5, 2, 3, 4] after insert_after to head"
+        "List traverse must be [1, 5, 2, 3, 4] after insert_after to head"
     assert [n.data for n in dlist.traverse(True)] == [4, 3, 2, 5, 1],\
-            "List traverse must be [4, 3, 2, 5, 1] after insert_after to head"
+        "List traverse must be [4, 3, 2, 5, 1] after insert_after to head"

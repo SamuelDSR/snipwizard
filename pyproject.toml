@@ -1,14 +1,19 @@
 [tool.poetry]
 name = "snipwizard"
 version = "0.1.0"
-description = ""
+description = "A package that contains useful python utilities and snippets. Aims to have no dependencies on other python packages, just pure stdlib"
 authors = ["Samuel DSR <samuel.longshihe@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.4.0,<4.0"
+python = ">=3.6.0,<4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.6"
+
+[tool.autopep8]
+ignore = "D203,F812,H101,H202,H233,H301,H306,H401,H403,H404,H405,H501"
+max-line-length = 120
+max-complexity = 10
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
